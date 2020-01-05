@@ -29,7 +29,7 @@ Content-Type: "application/json"
 1. Create a rate from the default provider (`fixerio`) using the `/api/provider_rates` endpoint
 2. To create an custom rate (rate with a custom fee)
 
-Check the `swagger doc` `/api/docs` for more information
+Check the `future` `swagger doc` `/api/docs` for more information
 
 ## Scripts
 
@@ -46,6 +46,8 @@ For testing, `mocha`, `chai`, and `supertest` are used
 
 ## Running the app with docker-compose
 
+(`Pending`)
+
 If you wish, you can run the app using Docker and Docker Compose. For this, you need:
 
 1. `Install Docker`: https://docs.docker.com/compose/install/
@@ -55,23 +57,24 @@ Once you have installed them, in the root folder of the project you need to run 
 
 ## Endpoints documentation
 
-This API uses swagger for the documentation of endpoints. To access this, you just need to start the server and then access `http://server:port/api/docs`, for example:` http://localhost:8080/api/docs`
+(`Pending`)
+
+This API will use swagger for the documentation of endpoints. To access this (`in future`), you just need to start the server and then access `http://server:port/api/docs`, for example:` http://localhost:8080/api/docs`
 
 ## Deployed example
 
-1. Global health check: `aws code deployed, health check`
-2. Swagger API Documentation: `aws code deployed, docs endpoint`
+1. Global health check: http://ec2-3-134-92-245.us-east-2.compute.amazonaws.com:8080/
+2. Swagger API Documentation: `aws code deployed, docs endpoint` (Pending)
 
 ## Thinks to do
 
-1. Add more unit and integration `test`, and improve the actual tests
+1. Add unit and integration `test`
 2. Add input validation on endpoints using `joi` https://hapi.dev/family/joi/
 3. To improve `error management`
 4. To improve `coverage` with `nyc` lib
 5. Add a new command to run in a separate way the `unit` and `integration` test
 6. Allow pagination in the endpoints
 7. Create a separate file for the `server`
-8. Add a token to the swagger documentation
-9. Add files configuration to `CI/CD` (codeship, google cloud build...)
-10. To improve the abstraction on the repositories (DAL layer, access to database) and define a better interface to the `service layer`
-11. To improve management dependencies, using for example an `IoC (Inversion of Control) container`, like: `awilix`, `bottlejs`, `inversify`
+8. Add files configuration to `CI/CD` (codeship, google cloud build...)
+9. To improve the abstraction on the repositories (DAL layer, access to database) and define a better interface to the `service layer`
+10. To improve management dependencies, using for example an `IoC (Inversion of Control) container`, like: `awilix`, `bottlejs`, `inversify`
