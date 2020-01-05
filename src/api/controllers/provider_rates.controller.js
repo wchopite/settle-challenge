@@ -2,9 +2,9 @@ const ProviderRatesController = {};
 
 ProviderRatesController.findAll = ({ProviderRateService}) => {
   return async (req, res) => {
-    let filter = (req.query.provider) ? {provider: req.query.provider} : undefined;
+    let provider = req.params.provider || undefined;
 
-    const provider_rates = await ProviderRateService.find(filter);
+    const provider_rates = await ProviderRateService.find({provider});
 
     if (provider_rates.length === 0) {
       return res
@@ -19,9 +19,9 @@ ProviderRatesController.findAll = ({ProviderRateService}) => {
 
 ProviderRatesController.findLast = ({ProviderRateService}) => {
   return async (req, res) => {
-    let filter = (req.query.provider) ? {provider: req.query.provider} : undefined;
+    let provider = req.params.provider || undefined;
 
-    let provider_rate = await ProviderRateService.findOne(filter);
+    let provider_rate = await ProviderRateService.findOne({provider});
 
     if (provider_rate.length === 0) {
       return res

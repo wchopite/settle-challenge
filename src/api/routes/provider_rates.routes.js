@@ -4,12 +4,12 @@ module.exports = ({ProviderRatesController}) => {
   routes.push(
     {
       method: ['GET'],
-      path: '/api/provider_rates',
+      path: '/api/provider_rates/{provider}',
       handler: ProviderRatesController.findAll,
     },
     {
       method: ['GET'],
-      path: '/api/provider_rates/last',
+      path: '/api/provider_rates/{provider}/last',
       handler: ProviderRatesController.findLast,
     },
     {
