@@ -74,3 +74,4 @@ This API uses swagger for the documentation of endpoints. To access this, you ju
 8. Add a token to the swagger documentation
 9. Add files configuration to `CI/CD` (codeship, google cloud build...)
 10. To improve the abstraction on the repositories (DAL layer, access to database) and define a better interface to the `service layer`
+11. To improve management dependencies, using for example an `IoC (Inversion of Control) container`, like: `awilix`, `bottlejs`, `inversify`

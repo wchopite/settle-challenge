@@ -7,6 +7,11 @@ module.exports = ({RatesController}) => {
       path: '/api/rates',
       handler: RatesController.find,
     },
+    {
+      method: ['POST'],
+      path: '/api/rates',
+      handler: RatesController.new,
+    },
   );
 
   return routes;

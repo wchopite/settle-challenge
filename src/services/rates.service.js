@@ -31,15 +31,37 @@ const service = {
     });
 
     return result;
-  }
+  },
+  async new({pair, fee_percent, provider = this.providers.default}) {
+    // Objects used update all documents according to filter => active=false
+    const filter = {provider, pair};
+    const update = {
+      $set: {active: false},
+    };
+    const options = {multi: true};
+
+    try {
+      await this.RatesRepository.update(filter, update, options);
+    } catch(err) {
+      this.logger.error(err);
+      process.exit(1);
+    }
+
+    const base = pair.substring(0, 3);
+    const dest = pair.substring(3, 6);
+    const timestamp = new Date().valueOf();
+    return this.RatesRepository.save({base, dest, pair, fee_percent, timestamp, active: true, provider});
+  },
 };
 
-module.exports = ({config, RatesRepository, ProviderRatesRepository}) => {
+module.exports = ({config, logger, RatesRepository, ProviderRatesRepository}) => {
   service.RatesRepository = RatesRepository;
   service.ProviderRatesRepository = ProviderRatesRepository;
   service.providers = config.providers;
+  service.logger = logger;
 
   return {
     find: service.find.bind(service),
+    new: service.new.bind(service),
   };
 };

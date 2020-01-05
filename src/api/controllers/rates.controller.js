@@ -16,13 +16,22 @@ RatesController.find = ({RateService}) => {
 
     let list = await RateService.find({provider, pairs});
 
-    // const rates = await RateService.findAll();
     return res.response(list).type('application/json');
+  };
+};
+
+RatesController.new = ({RateService}) => {
+  return async (req, res) => {
+    let { pair, fee_percent, provider } = req.payload;
+
+    let result = await RateService.new({pair, fee_percent, provider});
+    return res.response(result.ops[0]).type('application/json');
   };
 };
 
 module.exports = ({RateService}) => {
   return {
     find: RatesController.find({RateService}),
+    new: RatesController.new({RateService}),
   };
 };

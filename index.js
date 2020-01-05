@@ -20,7 +20,7 @@ const init = async () => {
     const {RatesRepository, ProviderRatesRepository} = require('./src/dal/repositories/mongodb/repositories')({db});
 
     // services
-    const RateService = require('./src/services/rates.service')({config, RatesRepository, ProviderRatesRepository});
+    const RateService = require('./src/services/rates.service')({config, logger, RatesRepository, ProviderRatesRepository});
     const ProviderRateService = require('./src/services/provider_rates.service')({config, httpClient, ProviderRatesRepository});
 
     // controllers

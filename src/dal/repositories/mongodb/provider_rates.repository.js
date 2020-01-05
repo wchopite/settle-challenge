@@ -12,6 +12,7 @@ const repo = {
   findOne(filter) {
     return this.db.find(filter).sort({timestamp: -1}).limit(1).toArray();
   },
+  // TODO: add validation
   save(data) {
     return this.db.insertOne(data);
   },
