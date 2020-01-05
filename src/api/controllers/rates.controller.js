@@ -3,8 +3,8 @@ const RatesController = {};
 RatesController.find = ({RateService}) => {
   return async (req, res) => {
     let provider = (req.query.provider) ? {provider: req.query.provider} : undefined;
-    let pairs = (req.query.pairs) ?
-      req.query.pairs.split(',')
+    let pairs = (req.params.pairs) ?
+      req.params.pairs.split(',')
       : [];
 
     if (pairs.length === 0) {
@@ -15,7 +15,6 @@ RatesController.find = ({RateService}) => {
     }
 
     let list = await RateService.find({provider, pairs});
-
     return res.response(list).type('application/json');
   };
 };
