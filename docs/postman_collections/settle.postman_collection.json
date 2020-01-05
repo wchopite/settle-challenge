@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "0d6f92ac-6a47-46de-9bbe-5a6c07a3f041",
+		"name": "settle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "rates",
+			"item": [
+				{
+					"name": "List rates with saved fee for specific pairs and provider",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/rates/fixerio/EURUSD",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"rates",
+								"fixerio",
+								"EURUSD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save a fee to saved rates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pair\": \"EURUSD\",\n\t\"fee_percent\": 5,\n\t\"provider\": \"fixerio\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/rates",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"rates"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "provider_rates",
+			"item": [
+				{
+					"name": "List all rates for a given provider",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/provider_rates/fixerio",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"provider_rates",
+								"fixerio"
+							]
+						},
+						"description": "List the rates by the provider\n\nthe default provider is fixerio (https://fixer.io/documentation)"
+					},
+					"response": []
+				},
+				{
+					"name": "find last rate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/provider_rates/fixerio/last",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"provider_rates",
+								"fixerio",
+								"last"
+							]
+						},
+						"description": "return the last rate from a specific provider"
+					},
+					"response": []
+				},
+				{
+					"name": "add new rate from provider",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"provider\": \"fixerio\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/provider_rates",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"provider_rates"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
