@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "cross-env NODE_ENV=production pm2 start index.js",
+    "stop": "pm2 stop index",
+    "restart": "cross-env NODE_ENV=production pm2 restart index",
     "start:dev": "cross-env NODE_ENV=development nodemon",
     "lint": "eslint ./",
     "test": "cross-env NODE_ENV=test mocha --recursive",
@@ -22,6 +24,7 @@
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "mongodb": "^3.4.1",
+    "pm2": "^4.2.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
