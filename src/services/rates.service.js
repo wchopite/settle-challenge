@@ -14,6 +14,7 @@ const service = {
     const providerRate = await this.ProviderRatesRepository.findOne({provider});
     const rates = await this.RatesRepository.find(filter, {});
 
+    // TODO: move this logic from here
     const result = rates.map((rate) => {
       let respond = {
         pair: rate.pair,

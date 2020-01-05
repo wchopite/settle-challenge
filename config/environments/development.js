@@ -1,7 +1,7 @@
 module.exports = {
   server: {
     name: 'settle-api-dev',
-    port: process.env.PORT || 1337
+    port: process.env.PORT || 8080
   },
   DB: {
     dialect: process.env.DB_DIALECT,
@@ -16,6 +16,6 @@ module.exports = {
         apiKey: process.env.FIXER_IO_API_KEY,
       },
     },
-    currencies: ['USD', 'ARS', 'BRL']
+    currencies: ['USD', 'ARS', 'BRL'],
   },
 };

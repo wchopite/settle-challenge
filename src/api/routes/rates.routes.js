@@ -4,7 +4,7 @@ module.exports = ({RatesController}) => {
   routes.push(
     {
       method: ['GET'],
-      path: '/rates',
+      path: '/api/rates',
       handler: RatesController.find,
     },
   );
