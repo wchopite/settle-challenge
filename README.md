@@ -65,7 +65,7 @@ This API uses swagger for the documentation of endpoints. To access this, you ju
 ## Thinks to do
 
 1. Add more unit and integration `test`, and improve the actual tests
-2. Add input validation on endpoints using `ajv` https://www.npmjs.com/package/ajv
+2. Add input validation on endpoints using `joi` https://hapi.dev/family/joi/
 3. To improve `error management`
 4. To improve `coverage` with `nyc` lib
 5. Add a new command to run in a separate way the `unit` and `integration` test

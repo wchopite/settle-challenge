@@ -1,8 +1,11 @@
+// TODO: The Services should not know the database syntax
 const service = {
   async find({provider, pairs}) {
     if (!provider) {
       provider = this.providers.default;
     }
+
+    pairs = (!pairs) ? [] : (Array.isArray(pairs)) ? pairs : pairs.split(',');
 
     // build the filter
     let filter = pairs.reduce((obj, pair) => {
@@ -35,11 +38,13 @@ const service = {
   async new({pair, fee_percent, provider = this.providers.default}) {
     // Objects used update all documents according to filter => active=false
     const filter = {provider, pair};
+
     const update = {
       $set: {active: false},
     };
     const options = {multi: true};
 
+    // TODO: To improve this
     try {
       await this.RatesRepository.update(filter, update, options);
     } catch(err) {
