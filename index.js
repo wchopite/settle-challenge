@@ -1,6 +1,6 @@
 const config = require('./config/config');
 const db = require('./src/dal/database/db')({config});
-const { httpClient } = require('./src/shared/shared');
+const { httpClient, logger } = require('./src/shared/shared');
 
 const Hapi = require('@hapi/hapi');
 
@@ -32,14 +32,15 @@ const init = async () => {
 
     await server.register(routes);
     await server.start();
-    console.log(`Server running on port ${config.server.port}`);
+    logger.info(`Server running on port ${config.server.port}`);
   } catch(err) {
-    console.log(err);
+    logger.error(err);
+    process.exit(1);
   }
 };
 
 process.on('unhandledRejection', (err) => {
-  console.log(err);
+  logger.error(err);
   process.exit(1);
 });
 

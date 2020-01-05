@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon",
     "lint": "eslint ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test mocha --recursive",
+    "coverage": "nyc npm run test",
+    "verify": "npm run lint && npm run test"
   },
   "keywords": [
     "challenge"

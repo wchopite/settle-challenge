@@ -4,17 +4,17 @@ module.exports = ({ProviderRatesController}) => {
   routes.push(
     {
       method: ['GET'],
-      path: '/provider_rates',
+      path: '/api/provider_rates',
       handler: ProviderRatesController.findAll,
     },
     {
       method: ['GET'],
-      path: '/provider_rates/last',
+      path: '/api/provider_rates/last',
       handler: ProviderRatesController.findLast,
     },
     {
       method: ['POST'],
-      path: '/provider_rates',
+      path: '/api/provider_rates',
       handler: ProviderRatesController.new,
     },
   );

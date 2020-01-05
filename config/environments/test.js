@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    name: 'settle-api',
+    name: 'settle-api-test',
     port: process.env.PORT
   },
   DB: {
