@@ -8,7 +8,15 @@ const repo = {
       .skip(skip)
       .limit(limit)
       .toArray();
-  }
+  },
+  // TODO: add validation
+  update(filter, update, options) {
+    return this.db.updateMany(filter, update, options);
+  },
+  // TODO: add validation
+  save(data) {
+    return this.db.insertOne(data);
+  },
 };
 
 module.exports = ({db}) => {
@@ -16,5 +24,7 @@ module.exports = ({db}) => {
 
   return {
     find: repo.find.bind(repo),
+    update: repo.update.bind(repo),
+    save: repo.save.bind(repo),
   };
 };
