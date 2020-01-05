@@ -7,7 +7,7 @@ This API is designed using multiple layers:
 3. `DAL (Data Access Layer)`: This layer separates access to data sources (databases). Use a type of `Repository Pattern`, trying to maintain a common interface to the `service layer`, allowing if necessary change the database engine (for example: change `MongoDB` for `MySQL`)
 4. `Shared`: This layer contains modules common to all layers, such as an `http client` and the `logger`
 
-`Of course` this is a beginning. A good idea is to add a central layer called `Domain`, with all the business logic, and create `models each layer`. In other words, try to apply a full `Clean Architecture`  https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+`Of course` this is a beginning. A good idea is to add a central layer called `Domain`, with all the business logic, and create `models` for each layer`. In other words, try to apply a full `Clean Architecture`  https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 
 ### To start:
 
