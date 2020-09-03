@@ -19,7 +19,7 @@
   "author": "Wladimir Chópite <wchopite@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0",
+    "@hapi/hapi": "^19.1.1",
     "axios": "^0.19.0",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
